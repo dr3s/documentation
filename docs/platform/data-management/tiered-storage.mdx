@@ -198,7 +198,11 @@ Remote write is the process that constantly uploads log segments to cloud storag
 
 To ensure all data is uploaded, you must enable remote write before any data is produced to the topic. If remote write is not enabled, data may be deleted due to retention settings. 
 
-To enable Tiered Storage, use remote write in conjunction with remote read. If you only enable remote write on a topic, you have a simple backup that you still can run recovery on.
+To enable Tiered Storage, use remote write in conjunction with remote read. 
+
+:::note
+If you only enable remote write on a topic, you have a simple backup that you still can run recovery on. See [Data Archiving](../data-archiving).
+:::
 
 To create a topic with remote write enabled:
 
