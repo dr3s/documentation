@@ -81,7 +81,7 @@ docker.redpanda.com/vectorized/redpanda redpanda start \
 --memory 1G  \
 --reserve-memory 0M \
 --overprovisioned \
---set redpanda.empty_seed_starts_cluster=false
+--set redpanda.empty_seed_starts_cluster=false \
 --seeds "redpanda-1:33145" \
 --check=false \
 --pandaproxy-addr INSIDE://0.0.0.0:28082,OUTSIDE://0.0.0.0:8082 \
@@ -104,7 +104,7 @@ docker.redpanda.com/vectorized/redpanda redpanda start \
 --memory 1G  \
 --reserve-memory 0M \
 --overprovisioned \
---set redpanda.empty_seed_starts_cluster=false
+--set redpanda.empty_seed_starts_cluster=false \
 --seeds "redpanda-1:33145" \
 --check=false \
 --pandaproxy-addr INSIDE://0.0.0.0:28083,OUTSIDE://0.0.0.0:8083 \
