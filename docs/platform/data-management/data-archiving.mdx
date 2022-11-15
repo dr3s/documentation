@@ -11,7 +11,7 @@ title: Data Archiving
 This feature requires an [Enterprise license](../../introduction/licenses). To upgrade, contact [Redpanda sales](https://redpanda.com/try-redpanda?section=enterprise-cloud).
 :::
 
-With data archiving, you enable remote write for simple topic backup to cloud storage. In the event of a data center failure, data corruption, or cluster migration, you can recover your archived data from the cloud back to your cluster. 
+Data archiving is one Tiered Storage use case. With data archiving, you enable remote write for simple topic backup to cloud storage. In the event of a data center failure, data corruption, or cluster migration, you can recover your archived data from the cloud back to your cluster. 
 
 You can enable remote read to make data readable from cloud storage, or you can make data available for read operations only when it's in local storage. 
 
@@ -21,15 +21,15 @@ Redpanda supports data archiving to Amazon S3 and Google Cloud Storage.
 
 ## Configure data archiving
 
-Data archiving is one Tiered Storage use case. See [Tiered Storage](../../data-management/tiered-storage) for detailed information about these steps:
+Data archiving requires a Tiered Storage configuration. See [Tiered Storage](../../data-management/tiered-storage) for detailed information about these data archiving steps:
 
 1. Enable remote write at the cluster level or at topic level. 
 
-2. Set `retention.ms` and `retention.bytes` to unlimited to prevent the backup data from purging.
+2. Set `retention.ms` and `retention.bytes` to unlimited to prevent your backup data from purging.
 	
 3. Optional: Enable remote read.
    
-4. To recover a topic from archived data, use remote recovery.
+4. To recover a topic from cloud storage, use [remote recovery](../../data-management/tiered-storage/#remote-recovery).
 
 ## Cancel and delete archiving jobs
 
@@ -38,7 +38,7 @@ The data archiving process runs on each node. By default, every 10 seconds the a
 Every upload job handles a single partition for which the node is a leader.
 When the leadership for the partition changes, the reconciliation process cancels all upload jobs that are no longer running on a leader and starts new upload jobs for new partitions. 
 
-In cases where you want to delete older archived data, you can use the following tags to safely delete both partition manifests and log segments from S3 buckets when they are no longer needed. It’s recommended that you keep topic manifests to recover the corresponding topic.
+To delete older archived data, you can use the following tags to safely delete both partition manifests and log segments from S3 buckets when they are no longer needed. It’s recommended that you keep topic manifests to recover the corresponding topic.
 
 Redpanda uploads the following objects to an S3 bucket:
 - Partition manifests
