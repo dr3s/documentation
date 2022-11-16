@@ -13,7 +13,9 @@ For production or benchmarking, see [Deploying for Production](../../deployment/
 
 ## Prerequisites
 
-Before you start, you must install [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install) and [Docker for Windows](https://docs.docker.com/desktop/windows/install/). Additionally, for Docker for Windows to work, you must [enable your Hypervisor service](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) in the Windows Control Panel.
+- Make sure you have [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install) installed.
+- Make sure you have [Docker for Windows](https://docs.docker.com/desktop/windows/install/) installed. 
+- Enable your [Hypervisor service](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) in the Windows Control Panel (required for Docker for Windows). 
 
 
 ## Run directly from Docker repository
@@ -134,7 +136,7 @@ docker.redpanda.com/vectorized/redpanda redpanda start ^
 --advertise-rpc-addr redpanda-3:33147
 ```
 
-## Run with a docker-compose file
+## Run with Docker Compose
 
 Another way to spin up a Redpanda cluster is with a `docker-compose` file.
 Copy this code, and save it as `docker-compose.yaml`:

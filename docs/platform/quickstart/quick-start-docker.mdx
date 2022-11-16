@@ -11,7 +11,7 @@ You can only run Redpanda directly on Linux. However, you can use Docker to run 
 
 See also: [Deploying for Production](../../deployment/production-deployment).
 
-## Bring up Redpanda using Docker run
+## Run directly from Docker repository
 
 To get a cluster ready for streaming, either run a single Docker container with Redpanda running, or run a cluster of three containers.
 
@@ -126,6 +126,7 @@ docker.redpanda.com/vectorized/redpanda redpanda start \
 --memory 1G  \
 --reserve-memory 0M \
 --overprovisioned \
+--set redpanda.empty_seed_starts_cluster=false \
 --seeds "redpanda-1:33145" \
 --check=false \
 --pandaproxy-addr INSIDE://0.0.0.0:28084,OUTSIDE://0.0.0.0:8084 \
@@ -159,7 +160,7 @@ ID    HOST        PORT
 2     redpanda-3  29094
 ```
 
-## Bring up Redpanda using Docker Compose
+## Run with Docker Compose
 
 You can try out different Docker configuration parameters with a `docker-compose` file.
 
